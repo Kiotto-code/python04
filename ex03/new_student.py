@@ -11,8 +11,8 @@ def generate_id() -> str:
 @dataclass
 class Student:
     """Student class"""
-    name: str
-    surname: str
+    name: str = field(init=True)
+    surname: str = field(init=True)
     active: bool = True
     login: str = field(init=False)
     id: str = field(init=False)
