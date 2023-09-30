@@ -20,4 +20,4 @@ class Student:
     def __post_init__(self):
         """called after class instantiated"""
         self.login = self.name[0] + self.surname.lower()
-        self.id = generate_id()
+        # self.id = generate_id()
