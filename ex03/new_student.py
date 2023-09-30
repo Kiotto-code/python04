@@ -15,7 +15,7 @@ class Student:
     surname: str = field(init=True)
     active: bool = True
     login: str = field(init=False)
-    id: str = field(init=False)
+    id: str = field(default_factory=generate_id, init=False)
 
     def __post_init__(self):
         """called after class instantiated"""
