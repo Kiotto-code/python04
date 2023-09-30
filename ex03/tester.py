@@ -1,7 +1,7 @@
 from new_student import Student
 
 # Student(name='Edward', surname='agle', active=True, login='Eagle', id='asd')
-student = Student(name="Edward", surname="agle")
+student = Student(name="Edward", surname="agle", active=False)
 # student = Student(name="Edward", surname="agle", active=True)
 # student=Student()
 print(student)
