@@ -11,7 +11,12 @@ def ft_mean(*args: any) -> float:
 
 def ft_median(*args: any) -> float:
     """return the median of the given arguments"""
-    return sorted(args)[len(args) // 2]
+    median_index = len(args)//2 - 1
+    if (len(args) % 2) == 0:
+        median = (args[median_index - 1] + args[median_index]) / 2
+    else:
+        median = args[median_index]
+    return median
 
 
 def ft_quartile(*args: any) -> list[float, float]:
@@ -32,16 +37,19 @@ def ft_var(*args: any) -> float:
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """identify functions and call them with the given arguments"""
-    dict = {
-        "mean": ft_mean,
-        "median": ft_median,
-        "quartile": ft_quartile,
-        "std": ft_std,
-        "var": ft_var
-    }
-    for value in kwargs.values():
-        try:
-            if value in dict.keys():
-                print(value, ":", dict.get(value)(*args))
-        except Exception:
-            print("value: ", "Error")
+    try:
+        dict = {
+            "mean": ft_mean,
+            "median": ft_median,
+            "quartile": ft_quartile,
+            "std": ft_std,
+            "var": ft_var
+        }
+        for value in kwargs.values():
+            try:
+                if value in dict.keys():
+                    print(value, ":", dict.get(value)(*args))
+            except Exception:
+                print("value: ", "Error")
+    except Exception as e:
+        print(e)
